@@ -21,6 +21,14 @@ export default new Vuex.Store({
       state.contacts.splice(id, 1)
     }
   },
+  getters: {
+    getContactTypes: state => {
+      return state.contacts.map(value => value.type)
+    },
+    getContacts: state => {
+      return state.contacts
+    }
+  },
   actions: {
     addContact({ commit }, contact) {
       commit('ADD_CONTACT', contact)
