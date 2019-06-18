@@ -8,9 +8,9 @@
         slot="activator"
         >
           <v-icon small left>person</v-icon>
-          <span class="caption text-lowercase">By project name</span>
+          <span class="caption text-lowercase">By contact name</span>
         </v-btn>
-        <span>Sort by project name</span>
+        <span>Sort by contact name</span>
       </v-tooltip>
       <v-tooltip top>
         <v-btn 
@@ -18,7 +18,7 @@
         @click="sortBy('type')" 
         slot="activator"
         >
-          <v-icon small left>person</v-icon>
+          <v-icon small left>favorite</v-icon>
           <span class="caption text-lowercase">By contact type</span>
         </v-btn>
         <span>Sort contact type</span>
@@ -29,7 +29,7 @@
         @click="sortBy('name')" 
         slot="activator"
         >
-          <v-icon small left>person</v-icon>
+          <v-icon small left>email</v-icon>
           <span class="caption text-lowercase">By email</span>
         </v-btn>
         <span>Sort by email</span>

@@ -1,6 +1,6 @@
 <template>
   <v-container class="text-xs-center">
-    <v-dialog max-width="600px">
+    <v-dialog v-model="dialog" max-width="600px">
       <v-btn flat slot="activator" class="success">Add New Contact</v-btn>
       <v-card>
         <v-card-title>
@@ -40,7 +40,8 @@
                 <v-btn
                   :disabled="!valid"
                   color="success"
-                  @click="submitContact(contact)"
+                  @click="submitContact(contact); dialog = false "
+
                 >
                   Submit
                 </v-btn>
@@ -68,12 +69,19 @@ export default {
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+/.test(v) || 'E-mail must be valid'
-      ]
+      ],
+      dialog: false,
+      contactTypes: null
     }),
   methods: {
     submitContact(contact) {
       this.$store.dispatch('addContact', this.contact)
+      this.contact = {}
+      this.dialog = false
     }
+  },
+  mounted() {
+    this.contactTypes = this.$store.getters.getContactTypes
   }
   
 
